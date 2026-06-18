@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+<body>
 
+<form id="form">
+    <input type="text" id="name" placeholder="Enter Name">
+    <p id="nameError" style="color:red;"></p>
+
+    <input type="text" id="email" placeholder="Enter Email">
+    <p id="emailError" style="color:red;"></p>
+
+    <input type="password" id="password" placeholder="Enter Password">
+    <p id="passError" style="color:red;"></p>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+let form = document.getElementById("form");
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = document.getElementById("name");
+    let email = document.getElementById("email");
+    let password = document.getElementById("password");
+
+    let nameError = document.getElementById("nameError");
+    let emailError = document.getElementById("emailError");
+    let passError = document.getElementById("passError");
+
+    // Name Validation
+    if(name.value.trim() == ""){
+        nameError.innerText = "Fill this";
+    } else {
+        nameError.innerText = "";
+    }
+
+    // Email Validation
+    if(email.value.trim() == ""){
+        emailError.innerText = "Fill this";
+    } else {
+        emailError.innerText = "";
+    }
+
+    // Password Validation
+    if(password.value.trim() == ""){
+        passError.innerText = "Fill this";
+    }
+    else if(password.value.length < 6){
+        passError.innerText = "Password must be at least 6 characters";
+    }
+    else{
+        passError.innerText = "";
+    }
+});
+</script>
+
+</body>
+</html>
